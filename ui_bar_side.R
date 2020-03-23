@@ -2,17 +2,21 @@
 bar_side = gentelellaSidebar(
   site_title = span(class = "title-main",
                     h1("AgriPA")),
+  url = "/",
   uiOutput("profile"),
-  sidebarDate(),
+  div(id = "sidebar-menu", 
+      class = "main_menu_side hidden-print main_menu"),
   shiny::hr(class = "hr"),
-  sidebarMenu(
+  sidebarMenu(title = "",
     sidebarItem("Market Price",
-                tabName = "tab1", 
-                icon = tags$i(class = "fas fa-chart-bar"), 
-                badgeName = "new",
-                badgeStatus = "danger"),
+                tabName = "marketprice",
+                icon = tags$i(class = "fas fa-chart-bar")),
+    sidebarItem("News",
+                tabName = "news",
+                icon = tags$i(class = "fas fa-tasks")),
     sidebarItem("Data Info",
-                tabName = "tab2", 
-                icon = tags$i(class = "fas fa-info"))
-  )
+                tabName = "dataref",
+                icon = tags$i(class = "fas fa-tags"))
+  ),
+  footer = HTML('')
 )
